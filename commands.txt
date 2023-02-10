@@ -1,0 +1,43 @@
+[Unit]
+Description=A Spring Boot Applcation for examportal
+After=syslog.target
+
+[Service]
+User=ubuntu
+ExecStart=/home/ubuntu/project/examportal.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+
+
+/etc/systemd/system
+	examportal.service
+
+
+systemctl enable examportal
+systemctl start examportal
+systemctl stop examportal
+systemctl restart examportal
+systemctl status examportal
+
+systemctl enable nginx
+systemctl start nginx
+systemctl stop nginx
+systemctl restart nginx
+systemctl status nginx
+
+/etc/nginx/conf.d/
+			codewithdurgesh.com.conf
+
+
+server {
+  listen 0.0.0.0:80;
+  root /home/ubuntu/project/examfront; 
+  server_name codewithdurgesh.com;	
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+}
+
+

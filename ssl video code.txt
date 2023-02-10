@@ -1,0 +1,18 @@
+http://codewithdurgesh.com:8080/
+
+api.codewithdurgesh.com
+
+/etc/nginx/conf.d/
+		api.codewithdurgesh.com.conf
+
+server {
+  listen 80;
+  server_name api.codewithdurgesh.com;
+
+  location / {
+     proxy_pass "http://localhost:8080";
+     proxy_set_header Host api.codewithdurgesh.com;
+  }
+}
+
+
