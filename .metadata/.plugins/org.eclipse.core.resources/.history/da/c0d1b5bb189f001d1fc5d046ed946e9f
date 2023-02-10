@@ -1,0 +1,13 @@
+package com.exam.config;
+
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+//@EnableWebSecurity
+//@Configuration
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableWebSecurity
+
+public class MySecurityConfig 
+{
+	
+}

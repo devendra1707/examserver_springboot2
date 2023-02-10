@@ -1,0 +1,24 @@
+package com.exam.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@EnableWebSecurity
+@Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+
+public class MySecurityConfig extends WebSecurityConfigurerAdapter
+{
+	@Override // Default Behaviour of HttpSecurityObj will not have any authorization logic
+	public void configure(HttpSecurity authorizationObj) throws Exception {
+
+		authorizationObj.csrf().disable() // Please ignore this line for today's class
+				.authorizeRequests().antMatchers("/tickets/admin/**").hasRole("ADMIN").and().formLogin(); // formLogin
+
+		authorizationObj.csrf().disable().authorizeRequests().antMatchers("/tickets/ticket/**").hasAnyRole("GUEST")
+				.and().formLogin();
+	}
+}

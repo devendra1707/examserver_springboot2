@@ -1,0 +1,26 @@
+#database configuration
+
+#spring.datasource.url = jdbc:mysql://localhost:3306/exam
+
+#spring.datasource.username=root
+#spring.datasource.password=Admin@123
+
+#spring.datasource.driver-class = com.mysql.cj.jdbc
+
+#jpa configuration
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+
+#spring.jpa.hibernate.ddl-auto=update
+
+#spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.formate_sql=true
+
+
+
+spring.datasource.url=jdbc:mysql://localhost:3306/exam
+spring.datasource.username=root
+spring.datasource.password=Admin@123
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.jpa.database-platform = org.hibernate.dialect.MySQL8Dialect
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto = update

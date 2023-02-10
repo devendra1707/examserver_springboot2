@@ -1,0 +1,44 @@
+package com.exam.model.exam;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "quiz")
+public class Quiz {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long qId;
+
+	private String title;
+
+	private String description;
+
+	private String maxMarks;
+
+	private String numberOfQuestions;
+
+	private boolean active = false;
+
+	// add
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Category category;
+}

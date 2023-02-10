@@ -1,0 +1,5 @@
+package com.exam.config;
+
+public class JwtUtil {
+
+}

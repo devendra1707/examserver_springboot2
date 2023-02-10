@@ -1,0 +1,10 @@
+package com.exam.model.exam;
+
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+
+public class Question {
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Quiz quiz;
+}

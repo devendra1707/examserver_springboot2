@@ -1,0 +1,266 @@
+https://material.angular.io/components/card/overview
+https://www.flaticon.com/free-icon/exam_9528308?term=exam&page=1&position=92&origin=search&related_id=9528308
+https://ckeditor.com/docs/ckeditor5/latest/installation/frameworks/angular.html
+
+==Deploy Angular project in Firebase ===========
+https://www.youtube.com/watch?v=dPIyS5R6lHU
+
+railway
+https://www.youtube.com/watch?v=rUaBqTvyMzA
+
+Loader:-
+https://github.com/t-ho/ngx-ui-loader
+------------------------------------------------------
+deploy in Hiroku
+https://www.youtube.com/watch?v=y_idn12FB18
+--------------------------------------------------------
+Spring-Boot Deploy Hiroku
+https://www.youtube.com/watch?v=H8QILN7WWGo
+
+https://www.freeprojectz.com/paid-projects/java-spring-boot-react-project/packers-and-movers-management-system-project
+Multiple Project
+
+postgrat 
+=> Hiroku
+
+https://programmingtechie.com/2020/10/10/deploy-spring-boot-and-angular-application-to-heroku/#Login_to_Heroku_through_CLI
+------------------------------------------
+Spring-Boot Angular Project
+https://www.youtube.com/@ProgrammingTechie/playlists
+
+--------------------------------------
+https://www.youtube.com/watch?v=7PsjGI-88sc&list=PLSVW22jAG8pAGrwFjsUERCu9WSo2-uEMg
+--------------------------------------------------------------------------------------------------------------------
+Complete Project Spring and Angular
+https://www.youtube.com/watch?v=LfZ7xdMPytI&list=PLSVW22jAG8pAGrwFjsUERCu9WSo2-uEMg&index=24
+
+
+
+
+
+**********************************************************************************************************
+
+--------------------------------------------------------------------------------------------------------
+generate token
+---------------
+post => http://localhost:8081/generate-token
+{
+   "username": "devendra17",
+    "password": "abc"
+}
+
+Ans : {
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXZlbmRyYTE3IiwiZXhwIjoxNjc1MTc5ODcxLCJpYXQiOjE2NzUxNDM4NzF9.IW3-xKVtsgjWGM6u3xAKHhFtpFVhIeI6VEQY8yzGdTU"
+}
+
+============================================================
+Category Add 
+post => http://localhost:8081/category/
+
+{ 
+    "title" : "Programming Pratice",
+    "description" : "This category contains quiz of programming."
+}
+
+ans: 
+{
+    "cid": 32,
+    "title": "Programming Pratice",
+    "description": "This category contains quiz of programming."
+}
+
+============================================================================
+
+Add Quiz
+------------
+post => 
+http://localhost:8081/quiz/
+
+
+{
+    
+    "title" : "Test",
+    "description":"This quiz contains of basics Python.",
+    "maxMarks" : 500,
+    "numberOfQuestions" : 50,
+    "category" : {
+        "cid" : 56
+
+    }
+    
+}
+
+ans =>
+{
+    "title": "Test",
+    "description": "This quiz contains of basics Python.",
+    "maxMarks": "500",
+    "numberOfQuestions": "50",
+    "active": false,
+    "category": {
+        "cid": 56,
+        "title": null,
+        "description": null
+    },
+    "qid": 63
+}
+
+===============================================================
+
+Question
+----------
+http://localhost:8081/question/53
+
+
+{
+    "content" : "What is Java Programming.",
+    "image":"java.png",
+    "option1" : "OOPS",
+    "option2" : "Function",
+    "option3" : "Method",
+    "option4" : "Collection",
+    "answer" : "OOPS",
+
+    "quiz" : {
+       "qid": 33
+
+    }
+    
+}
+
+Add Question
+--------------
+post -> http://localhost:8081/question/
+
+
+{
+    "content" : "What is Java Programming.",
+    "image":"java.png",
+    "option1" : "OOPS",
+    "option2" : "Function",
+    "option3" : "Method",
+    "option4" : "Collection",
+    "answer" : "OOPS",
+
+    "quiz" : {
+       "qid": 33
+
+    }
+    
+}
+
+Ans => 
+{
+    "quesId": 64,
+    "content": "What is Java Programming.",
+    "image": "java.png",
+    "option1": "OOPS",
+    "option2": "Function",
+    "option3": "Method",
+    "option4": "Collection",
+    "answer": "OOPS",
+    "quiz": {
+        "title": null,
+        "description": null,
+        "maxMarks": null,
+        "numberOfQuestions": null,
+        "active": false,
+        "category": null,
+        "qid": 33
+    }
+}
+
+=================================================
+
+User
+----------
+post = > 
+http://localhost:8081/user/
+
+
+{
+    "id" : 17,
+    "username":"asd",
+    "firstName":"asd",
+    "lastName":"asd",
+    "email":"asd@gmail.com",
+    "phone": "9898987689",
+    "password":"asd",
+    "profile":"test@123"
+}
+
+Ans=>
+{
+    "id": 17,
+    "username": "asd",
+    "password": "$2a$10$9./aUucH4gZNaXpc7.jxPuMYsOka1YYj0ukGmse0nd5QL3shRHHIu",
+    "firstName": "asd",
+    "lastName": "asd",
+    "email": "asd@gmail.com",
+    "phone": "9898987689",
+    "enable": true,
+    "profile": "default.png",
+    "enabled": true,
+    "accountNonExpired": true,
+    "credentialsNonExpired": true,
+    "accountNonLocked": true,
+    "authorities": [
+        {
+            "authority": "NORMAL"
+        }
+    ]
+}
+
+===========================================
+Get Current User-
+-------------------
+GET => http://localhost:8081/current-user
+
+Ans =>
+
+
+{
+    "id": 9,
+    "username": "devendra17",
+    "password": "$2a$10$JjTG8XwSY3AgrLX8.C8zH.l8tW45uWwEiEQXs3bZaPry7KGW2PqKe",
+    "firstName": "Devendra",
+    "lastName": "Patel",
+    "email": "deva@gmail.com",
+    "phone": "98981234",
+    "enable": true,
+    "profile": "default.png",
+    "enabled": true,
+    "authorities": [
+        {
+            "authority": "ADMIN"
+        }
+    ],
+    "credentialsNonExpired": true,
+    "accountNonExpired": true,
+    "accountNonLocked": true
+}
+
+================================================================================================
+Delete user by id
+-----------------
+delete = > http://localhost:8081/user/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
