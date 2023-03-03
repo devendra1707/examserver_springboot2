@@ -40,18 +40,18 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	// For Testing Purpose
-/*	
+	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-*/
-	
+
+	/*
 	@Bean
 	 public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+*/
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(this.userDetailsServiceImpl).passwordEncoder(passwordEncoder());
@@ -59,7 +59,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override // Default Behaviour of HttpSecurityObj will not have any authorization logic
 	protected void configure(HttpSecurity authorizationObj) throws Exception {
-		authorizationObj.csrf().disable().cors().disable().authorizeRequests().antMatchers("/generate-token", "/user")
+		authorizationObj.csrf().disable().cors().disable().authorizeRequests().antMatchers("/generate-token", "/user","/user/")
 				.permitAll().antMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated().and()
 				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

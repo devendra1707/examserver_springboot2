@@ -32,8 +32,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+//	@Autowired
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@GetMapping("/test")
 	public String test() {
@@ -47,11 +47,11 @@ public class UserController {
 		user.setProfile("default.png");
 		
 		// Normal Password
-//		user.setPassword(user.getPassword());
+		user.setPassword(user.getPassword());
 		
 		// Encoding password with BCryptPasswordEncoder
 		
-		user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+//		user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
 		
 		
 		Set<UserRole> roles = new HashSet<>();

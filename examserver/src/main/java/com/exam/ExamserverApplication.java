@@ -18,8 +18,8 @@ import com.exam.service.UserService;
 @SpringBootApplication
 public class ExamserverApplication implements CommandLineRunner {
 
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+//	@Autowired
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Autowired
 	private UserService userService;
@@ -31,34 +31,19 @@ public class ExamserverApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Starting code");
-		/*
-		 * User user = new User(); user.setFirstName("Devendra");
-		 * user.setLastName("Patel"); user.setUsername("devendra17");
-		 * user.setPassword("12345"); user.setEmail("deva@gmail.com");
-		 * user.setPhone("98981234"); user.setProfile("default.png");
-		 * 
-		 * Role role1 = new Role(); role1.setRoleId(41L); role1.setRoleName("ADMIN");
-		 * 
-		 * Set<UserRole> userRoleSet = new HashSet<>(); UserRole userRole = new
-		 * UserRole(); userRole.setRole(role1); userRole.setUser(user);
-		 * 
-		 * userRoleSet.add(userRole);
-		 * 
-		 * User user1 = this.userService.createUser(user, userRoleSet);
-		 * System.out.println(user1.getUsername());
-		 */
+
 		try {
 			User user = new User();
-			user.setFirstName("Sonu");
-			user.setLastName("Kumar");
-			user.setUsername("sonu17");
-			user.setPassword(this.bCryptPasswordEncoder.encode("abc"));
-			user.setEmail("sonu@gmail.com");
+			user.setFirstName("Devendra");
+			user.setLastName("Patel");
+			user.setUsername("devendra17");
+			user.setPassword("12345");
+			user.setEmail("deva@gmail.com");
 			user.setPhone("98981234");
 			user.setProfile("default.png");
 
 			Role role1 = new Role();
-			role1.setRoleId(12L);
+			role1.setRoleId(41L);
 			role1.setRoleName("ADMIN");
 
 			Set<UserRole> userRoleSet = new HashSet<>();
@@ -72,8 +57,27 @@ public class ExamserverApplication implements CommandLineRunner {
 			System.out.println(user1.getUsername());
 		} catch (UserFoundException e) {
 			e.printStackTrace();
-
 		}
+
+		/*
+		 * try { User user = new User(); user.setFirstName("Sonu");
+		 * user.setLastName("Kumar"); user.setUsername("sonu17");
+		 * user.setPassword(this.bCryptPasswordEncoder.encode("abc"));
+		 * user.setEmail("sonu@gmail.com"); user.setPhone("98981234");
+		 * user.setProfile("default.png");
+		 * 
+		 * Role role1 = new Role(); role1.setRoleId(12L); role1.setRoleName("ADMIN");
+		 * 
+		 * Set<UserRole> userRoleSet = new HashSet<>(); UserRole userRole = new
+		 * UserRole(); userRole.setRole(role1); userRole.setUser(user);
+		 * 
+		 * userRoleSet.add(userRole);
+		 * 
+		 * User user1 = this.userService.createUser(user, userRoleSet);
+		 * System.out.println(user1.getUsername()); } catch (UserFoundException e) {
+		 * e.printStackTrace();
+		 */
+
 	}
 
 }
